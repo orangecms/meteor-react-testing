@@ -1,0 +1,33 @@
+{
+  "name": "meteor-react-testing",
+  "private": true,
+  "scripts": {
+    "start": "meteor run"
+  },
+  "dependencies": {
+    "react": "^0.14.8",
+    "react-dom": "^0.14.8"
+  },
+  "version": "1.0.0",
+  "description": "Testing a Meteor+React application stack with Chimp, Cucumber and Jasmine",
+  "main": "index.js",
+  "devDependencies": {},
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/orangecms/meteor-react-testing"
+  },
+  "keywords": [
+    "Meteor",
+    "React",
+    "Testing",
+    "Chimp",
+    "Cucumber",
+    "Jasmine"
+  ],
+  "author": "Daniel Maslowski <daniel.maslowski@shop.co> (https://shop.co/)",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/orangecms/meteor-react-testing/issues"
+  },
+  "homepage": "https://github.com/orangecms/meteor-react-testing"
+}
