@@ -2,6 +2,17 @@ import React, { Component } from 'react';
 
 import styles from './kitty.mss';
 
+function *emoji (min, max) {
+  let current = min;
+  while (true) {
+    yield String.fromCodePoint(current);
+    current++;
+    if (current > max) current = min;
+  }
+}
+
+const kittyEmoji = emoji(0x1F638, 0x1F640);
+
 export default class Kitty extends Component {
   constructor(props) {
     super(props);
@@ -9,8 +20,8 @@ export default class Kitty extends Component {
     this.name = this.props.kitty.name;
   }
 
-  componentDidMount() {
-    new kitty({ target: this.target });
+  getEmoji() {
+    return kittyEmoji.next().value;
   }
 
   /**
@@ -21,7 +32,9 @@ export default class Kitty extends Component {
     return (
       <figure className={styles.kitty}>
         <img src={`http://thecatapi.com/api/image/get?meow=${this.id}`} />
-        <figcaption>{ this.name }</figcaption>
+        <figcaption>
+          { this.name } { this.getEmoji() }
+        </figcaption>
       </figure>
     )
   }
