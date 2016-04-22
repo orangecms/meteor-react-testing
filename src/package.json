@@ -5,8 +5,8 @@
     "start": "meteor run"
   },
   "dependencies": {
-    "react": "^0.14.8",
-    "react-dom": "^0.14.8"
+    "react": "^15.0.1",
+    "react-dom": "^15.0.1"
   },
   "version": "1.0.0",
   "description": "Testing a Meteor+React application stack with Chimp, Cucumber and Jasmine",

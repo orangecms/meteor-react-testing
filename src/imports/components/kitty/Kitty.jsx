@@ -1,6 +1,6 @@
 import React, { Component } from 'react';
 
-import styles from './kitty.mss';
+import './kitty.css';
 import { kittyEmoji } from '../../emojiGenerator.js';
 
 export default class Kitty extends Component {
@@ -20,7 +20,7 @@ export default class Kitty extends Component {
    */
   render() {
     return (
-      <figure className={styles.kitty}>
+      <figure>
         <img src={`http://thecatapi.com/api/image/get?meow=${this.id}`} />
         <figcaption>
           { this.name } { this.getEmoji() }
