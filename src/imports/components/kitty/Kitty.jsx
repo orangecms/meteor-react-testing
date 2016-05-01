@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import './kitty.css';
-import { kittyEmoji } from '../../emojiGenerator.js';
+import { kittyEmoji } from 'emoji-generator';
 
 export default class Kitty extends Component {
   constructor(props) {
