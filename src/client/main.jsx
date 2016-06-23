@@ -5,7 +5,6 @@ import { render } from 'react-dom';
 import App from '../imports/components/App.jsx';
 
 Meteor.startup(() => {
-  const appContainer = document.createElement('div');
-  document.body.appendChild(appContainer);
+  const appContainer = document.getElementById('app');
   render(<App />, appContainer);
 });
