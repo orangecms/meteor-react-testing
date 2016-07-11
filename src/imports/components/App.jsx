@@ -1,33 +1,21 @@
-import React, { Component } from 'react';
+import { Meteor } from 'meteor/meteor';
+import { createContainer } from 'meteor/react-meteor-data';
+import React, { Component, PropTypes } from 'react';
 
+import { Kitties } from '../collections';
 import Kitty from './kitty/Kitty.jsx';
 
 // App component - represents the whole app
-export default class App extends Component {
-  /**
-   *
-   *
-   */
-  getKitties() {
-    return [
-      { _id: 1, name: 'Miss Kitty Fantastico' },
-      { _id: 2, name: 'Lady Layla' },
-      { _id: 3, name: 'Princess Petty' },
-    ];
-  }
-
+class App extends Component {
   /**
    *
    *
    */
   renderKitties() {
-    return this.getKitties().map((kitty) => (
-      <li>
-        <Kitty key={kitty._id} kitty={kitty} />
-      </li>
-    ));
+    return this.props.kitties.map(
+      (kitty) => <li><Kitty key={kitty._id} kitty={kitty} /></li>
+    );
   }
-
 
   render() {
     return (
@@ -43,3 +31,14 @@ export default class App extends Component {
     );
   }
 }
+
+App.propTypes = {
+  kitties: PropTypes.array.isRequired,
+}
+
+export default createContainer(() => {
+  Meteor.subscribe('kitties');
+  return {
+    kitties: Kitties.find({}).fetch(),
+  };
+}, App);

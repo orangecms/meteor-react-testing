@@ -1,4 +1,4 @@
-import React, { Component } from 'react';
+import React, { Component, PropTypes } from 'react';
 
 import './kitty.css';
 import { kittyEmoji } from 'emoji-generator';
@@ -29,3 +29,7 @@ export default class Kitty extends Component {
     )
   }
 }
+
+Kitty.propTypes = {
+  kitty: PropTypes.object.isRequired,
+};
