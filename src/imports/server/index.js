@@ -2,19 +2,21 @@ import { Meteor } from 'meteor/meteor';
 
 import { Kitties } from '../collections';
 import './publications';
-//import './methods';
+import './methods';
+
+/**
+ * remove existing kitties and insert mock data :)
+ */
+const mockKitties = () => {
+  Kitties.remove({});
+  ([
+    { name: 'Miss Kitty Fantastico' },
+    { name: 'Lady Layla' },
+    { name: 'Princess Petty' },
+  ]).forEach((kitty) => Kitties.insert(kitty));
+};
 
 Meteor.startup(() => {
   console.log('Meteor server running');
-
-  if (!Kitties.find({}).count()) {
-    const mockKitties = [
-      { name: 'Miss Kitty Fantastico' },
-      { name: 'Lady Layla' },
-      { name: 'Princess Petty' },
-    ];
-    mockKitties.forEach((kitty) => {
-      Kitties.insert(kitty);
-    });
-  }
+  Kitties.find({}).count() || mockKitties();
 });

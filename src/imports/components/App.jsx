@@ -7,6 +7,19 @@ import Kitty from './kitty/Kitty.jsx';
 
 // App component - represents the whole app
 class App extends Component {
+  constructor() {
+    super();
+    this.addKitty = this.addKitty.bind(this);
+  }
+
+  addKitty() {
+    Meteor.call('Kitties.add', this.refs.kittyName.value);
+  }
+
+  clearKitties() {
+    Meteor.call('Kitties.clear');
+  }
+
   /**
    *
    *
@@ -22,6 +35,9 @@ class App extends Component {
       <div className="container">
         <header>
           <h1>Kitty power!</h1>
+          <input type="text" ref="kittyName" />
+          <button onClick={this.addKitty}>kitty++</button>
+          <button onClick={this.clearKitties}>kitty--</button>
         </header>
 
         <ul>
