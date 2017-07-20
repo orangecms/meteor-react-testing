@@ -35,9 +35,11 @@ class App extends Component {
       <div className="container">
         <header>
           <h1>Kitty power!</h1>
-          <input type="text" ref="kittyName" />
-          <button onClick={this.addKitty}>kitty++</button>
-          <button onClick={this.clearKitties}>kitty--</button>
+          <form onSubmit={this.addKitty}>
+            <input type="text" ref="kittyName" />
+            <button type="submit">kitty++</button>
+          </form>
+          <button onClick={this.clearKitties}>reset</button>
         </header>
 
         <ul>

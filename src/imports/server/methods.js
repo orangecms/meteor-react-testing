@@ -1,10 +1,13 @@
 import { Meteor } from 'meteor/meteor';
-import { Kitties } from '../collections';
+import { Kitties, resetKitties } from '../collections';
 
 Meteor.methods({
+  'Kitties.add': (name) => {
+    if (typeof name === 'string') {
+      return Kitties.insert({ name });
+    }
+    throw new Meteor.Error('No no, that was bad!');
+  },
 
-  'Kitties.add': (name) => Kitties.insert({ name }),
-
-  'Kitties.clear': () => Kitties.remove({}),
-
+  'Kitties.clear': resetKitties,
 });
