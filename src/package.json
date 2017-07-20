@@ -5,6 +5,7 @@
     "start": "meteor run"
   },
   "dependencies": {
+    "babel-runtime": "^6.23.0",
     "emoji-generator": "1.0.5",
     "react": "^15.0.1",
     "react-addons-pure-render-mixin": "^15.2.1",
